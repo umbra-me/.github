@@ -1,0 +1,13 @@
+schema_version: 1
+component: umbra/github-org
+hosts: [macos, linux, windows]
+tools:
+  - {executable: python3, version: ">=3.13.7"}
+actions:
+  prepare: []
+  check: [{executable: python3, arguments: [tools/check_profile.py], cwd: .}]
+  build: [{executable: python3, arguments: [tools/check_profile.py], cwd: .}]
+  release: [{executable: python3, arguments: [tools/check_profile.py], cwd: .}]
+manual_gates:
+  - GitHub renders the organisation page; check github.com/umbra-me after each push.
+  - The organisation avatar is uploaded by hand in organisation settings.
